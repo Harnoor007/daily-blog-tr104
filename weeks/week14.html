@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 14 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 14: Super Admin Portal - Dashboard and Analytics Implementation</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week13.html" class="button"><i class="fas fa-arrow-left"></i> Week 13</a>
+                    <a href="week15.html" class="button">Week 15 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on developing the dashboard and analytics features for the Super Admin Portal, providing visual insights and key metrics to administrators.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>API endpoints for dashboard metrics and statistics</li>
+                        <li>Revenue analytics and reporting</li>
+                        <li>Client and product performance tracking</li>
+                        <li>Upcoming subscription renewal forecasting</li>
+                        <li>Geographic distribution of clients</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Started planning and implementing the basic dashboard metrics.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Designed the dashboard data structure and API endpoints</li>
+                        <li>Implemented API for total clients count and active/inactive status</li>
+                        <li>Created endpoint for total revenue calculations</li>
+                        <li>Set up API for total active products count</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining which metrics would be most valuable to display on the dashboard required discussions with stakeholders. I also needed to ensure that the data aggregation queries were optimized for performance.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented product and revenue analytics endpoints.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created API for top-selling products based on subscription count</li>
+                        <li>Implemented monthly revenue tracking and comparison</li>
+                        <li>Developed API for revenue breakdown by product category</li>
+                        <li>Set up endpoints for revenue forecasting based on active subscriptions</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Aggregating and calculating revenue data from multiple collections required complex MongoDB aggregation pipelines. Ensuring accurate forecasting also needed careful consideration of subscription renewal dates.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Focused on client analytics and geographical distribution.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented API for top clients by revenue</li>
+                        <li>Created endpoint for client acquisition over time</li>
+                        <li>Developed geographical distribution of clients by country</li>
+                        <li>Set up API for client industry breakdown</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Working with geographic data and ensuring proper grouping by country required careful handling of the data. Some clients had incomplete address information, which needed to be accounted for in the analytics.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented subscription analytics and upcoming renewal forecasting.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created API for upcoming subscription renewals in the next 30 days</li>
+                        <li>Implemented endpoint for subscription plan distribution</li>
+                        <li>Developed API for subscription cycle popularity</li>
+                        <li>Set up analytics for subscription changes and upgrades</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Tracking subscription changes over time required careful data modeling. I needed to ensure that the history of plan changes was properly maintained and could be queried efficiently for analytics purposes.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized the dashboard APIs and implemented caching for performance.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented API for invoice payment status analytics</li>
+                        <li>Added caching for dashboard metrics to improve performance</li>
+                        <li>Created combined dashboard endpoint for all key metrics</li>
+                        <li>Tested all dashboard APIs for accuracy and performance</li>
+                        <li>Documented the dashboard and analytics APIs</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully implemented the dashboard and analytics features for the Super Admin Portal. The APIs now provide valuable insights into client behavior, product performance, and revenue trends. I learned a lot about MongoDB aggregation pipelines and how to efficiently calculate metrics from related collections. The caching mechanism I implemented will ensure that the dashboard loads quickly, even as the amount of data in the system grows. These analytics features will help Wits Innovation Lab make data-driven decisions about their products and client relationships.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

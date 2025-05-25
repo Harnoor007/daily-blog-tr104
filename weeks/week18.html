@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 18 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 18: Super Admin Portal - Testing and Quality Assurance</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week17.html" class="button"><i class="fas fa-arrow-left"></i> Week 17</a>
+                    <a href="week19.html" class="button">Week 19 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on implementing comprehensive testing and quality assurance for the Super Admin Portal to ensure reliability and stability of the application.</p>
+                    
+                    <h3>Key Activities</h3>
+                    <ul>
+                        <li>Setting up Jest for unit and integration testing</li>
+                        <li>Writing test cases for core functionality</li>
+                        <li>Implementing error handling improvements</li>
+                        <li>Performance optimization</li>
+                        <li>Documentation updates</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Set up the testing environment and planned the testing strategy.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Configured Jest with TypeScript support</li>
+                        <li>Set up test database configuration</li>
+                        <li>Created test utilities and helpers</li>
+                        <li>Planned test coverage targets for different modules</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Setting up Jest with TypeScript and MongoDB required careful configuration. I needed to ensure that tests ran in isolation and that the test database was properly seeded with test data and cleaned up after each test run.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented unit tests for core services and utilities.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Wrote tests for validation utilities</li>
+                        <li>Created test cases for authentication services</li>
+                        <li>Implemented tests for date and calculation functions</li>
+                        <li>Added tests for permission checking utilities</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Writing effective unit tests required careful consideration of edge cases and boundary conditions. I needed to ensure that tests were focused on specific functionality and not dependent on implementation details that might change.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Focused on testing the Product and Client modules.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented integration tests for product CRUD operations</li>
+                        <li>Created test cases for plan and cycle management</li>
+                        <li>Wrote tests for client creation and management</li>
+                        <li>Added tests for subscription assignment and management</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Testing the complex relationships between products, plans, and clients required careful setup of test data. I needed to ensure that the tests verified not only the direct changes but also the cascade effects on related entities.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented tests for the Invoice and Dashboard modules.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created test cases for invoice generation</li>
+                        <li>Implemented tests for PDF creation functionality</li>
+                        <li>Wrote tests for dashboard metrics calculation</li>
+                        <li>Added tests for email sending functionality (with mocks)</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Testing components with external dependencies like PDF generation and email sending required effective mocking. I needed to create mock implementations that accurately simulated these services without actually generating PDFs or sending emails during tests.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized testing implementation and made improvements based on test results.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up continuous integration for automated testing</li>
+                        <li>Fixed bugs and issues discovered during testing</li>
+                        <li>Improved error handling based on test failures</li>
+                        <li>Updated documentation with testing procedures</li>
+                        <li>Created test coverage report and identified areas for future improvement</li>
+                    </ul>
+                    <p>End of week reflection: This week was focused on ensuring the quality and reliability of the Super Admin Portal through comprehensive testing. I've learned a lot about effective testing strategies for Node.js applications with MongoDB. Setting up Jest with TypeScript provided a robust testing environment, and writing tests for different modules helped identify and fix several edge cases that might have caused issues in production. The improved error handling will make the application more resilient, and the continuous integration setup will ensure that tests are run automatically with each code change. While we haven't achieved 100% test coverage yet, we've established a solid foundation that can be built upon in the future.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 12: Super Admin Portal - Invoice Module Development</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week11.html" class="button"><i class="fas fa-arrow-left"></i> Week 11</a>
+                    <a href="week13.html" class="button">Week 13 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on developing the Invoice module for the Super Admin Portal. This module enables the generation, management, and distribution of invoices to clients for their product subscriptions.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>Invoice generation from client subscriptions</li>
+                        <li>PDF invoice creation with company branding</li>
+                        <li>Email sending functionality for invoices</li>
+                        <li>Invoice management (viewing, tracking, etc.)</li>
+                        <li>Calculation of taxes and discounts</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Started designing and implementing the Invoice schema and basic CRUD operations.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Designed the Invoice schema with necessary fields</li>
+                        <li>Created model for invoice items and payment details</li>
+                        <li>Implemented basic validation for invoice data</li>
+                        <li>Set up invoice creation endpoint</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Designing the invoice schema was complex due to the need to track multiple items, calculate various totals, and maintain relationships with other entities like clients and products. I had to ensure the schema could handle different tax and discount scenarios.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented the Invoice controller with CRUD operations and generation logic.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created the Invoice controller with create, read, update, delete functions</li>
+                        <li>Implemented logic for generating invoices from subscriptions</li>
+                        <li>Added functionality for calculating subtotals, taxes, and discounts</li>
+                        <li>Set up invoice number generation system</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Implementing the invoice generation logic required careful calculation of various amounts (subtotals, taxes, discounts) while ensuring mathematical accuracy. I also had to design a reliable invoice numbering system that would generate unique, sequential identifiers.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Focused on implementing PDF generation for invoices.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Researched and selected a PDF generation library (PDFKit)</li>
+                        <li>Created invoice template with company branding</li>
+                        <li>Implemented dynamic PDF generation from invoice data</li>
+                        <li>Added functionality to store generated PDFs</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Creating a professional-looking PDF invoice template required significant attention to detail. Positioning elements correctly, handling dynamic content, and ensuring the layout worked for different invoice sizes were challenging aspects of this task.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented email functionality for sending invoices to clients.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up Nodemailer for email sending</li>
+                        <li>Created email templates for invoice notifications</li>
+                        <li>Implemented functionality to send PDF invoices as attachments</li>
+                        <li>Added email tracking and status updates</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Setting up email functionality required careful configuration of Nodemailer and creating proper email templates. Handling attachments and tracking email status added complexity to the implementation. I also had to ensure that sensitive email credentials were stored securely using environment variables.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized the Invoice module with additional features and tested the entire functionality.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented per-product discount and tax calculation</li>
+                        <li>Added invoice status management functionality</li>
+                        <li>Created endpoints for invoice listing with filtering</li>
+                        <li>Thoroughly tested all invoice module functionality</li>
+                        <li>Documented the invoice module APIs</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully implemented the Invoice module for the Super Admin Portal. I learned a lot about working with complex data structures, generating PDFs, and sending emails with Node.js. The per-product tax and discount calculations were particularly challenging but satisfying to implement. The invoice module now provides a complete solution for generating, sending, and tracking invoices for client subscriptions. Next week, I'll focus on refining the overall application and implementing additional features.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

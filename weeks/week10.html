@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 10: Super Admin Portal - Initial Development</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week9.html" class="button"><i class="fas fa-arrow-left"></i> Week 9</a>
+                    <a href="week11.html" class="button">Week 11 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Overview</h3>
+                    <p>The Super Admin Portal is an internal application for Wits Innovation Lab to manage their software products, clients, and subscriptions. It allows for tracking product usage, managing pricing plans, and handling invoicing.</p>
+                    
+                    <h3>My Role</h3>
+                    <p>Backend Developer working with Node.js, TypeScript, and MongoDB</p>
+                    
+                    <h3>Technologies Used</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>TypeScript</li>
+                        <li>Express.js</li>
+                        <li>MongoDB with Mongoose</li>
+                        <li>JWT for authentication</li>
+                        <li>Various NPM packages</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Started setting up the project structure and environment for the Super Admin Portal.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up project with TypeScript configuration</li>
+                        <li>Created the basic Express server with middleware</li>
+                        <li>Implemented MongoDB connection with Mongoose</li>
+                        <li>Set up environment variables and configuration</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Setting up MongoDB connection with Mongoose
+import mongoose from 'mongoose';
+
+const connectDB = async (): Promise<void> => {
+  try {
+    const connection = await mongoose.connect(process.env.MONGODB_URI as string);
+    console.log(`MongoDB Connected: ${connection.connection.host}`);
+  } catch (error) {
+    console.error(`Error connecting to MongoDB: ${error.message}`);
+    process.exit(1);
+  }
+};
+
+export default connectDB;
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Configuring TypeScript with Node.js and Express took some time to get right, especially setting up the proper types for Express request and response objects.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Focused on designing and implementing the product schema and basic CRUD operations.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Designed the Product schema with necessary fields</li>
+                        <li>Created the Plan and Cycle schemas</li>
+                        <li>Implemented relationships between these schemas</li>
+                        <li>Set up basic validation for the schemas</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Product Schema
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface IProduct extends Document {
+  name: string;
+  description: string;
+  category: string;
+  isActive: boolean;
+  plans: mongoose.Types.ObjectId[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const ProductSchema: Schema = new Schema({
+  name: { type: String, required: true, trim: true },
+  description: { type: String, required: true },
+  category: { type: String, required: true },
+  isActive: { type: Boolean, default: true },
+  plans: [{ type: Schema.Types.ObjectId, ref: 'Plan' }],
+}, { timestamps: true });
+
+export default mongoose.model<IProduct>('Product', ProductSchema);
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Designing flexible schemas that can accommodate different product types and pricing structures required careful consideration. I had to think about how products, plans, and cycles would relate to each other in the database.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Implemented the product controller with CRUD operations and routes.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created the Product controller with create, read, update, delete functions</li>
+                        <li>Implemented route for listing all products</li>
+                        <li>Added functionality for activating/deactivating products</li>
+                        <li>Created proper error handling for the API</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Product Controller - Create Product
+import { Request, Response } from 'express';
+import Product from '../models/Product';
+
+export const createProduct = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { name, description, category } = req.body;
+    
+    // Basic validation
+    if (!name || !description || !category) {
+      res.status(400).json({ success: false, message: 'Please provide all required fields' });
+      return;
+    }
+    
+    const product = await Product.create({
+      name,
+      description,
+      category
+    });
+    
+    res.status(201).json({
+      success: true,
+      data: product
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server Error',
+      error: error.message
+    });
+  }
+};
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring proper error handling and validation for all API endpoints required attention to detail. I had to think about various edge cases and how to provide meaningful error messages.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Started implementing the Plan and Cycle controllers and their relationship with Products.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created the Plan controller with CRUD operations</li>
+                        <li>Implemented the Cycle controller with CRUD operations</li>
+                        <li>Set up routes for associating plans with products</li>
+                        <li>Added functionality for managing cycles within plans</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Adding a Plan to a Product
+export const addPlanToProduct = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { productId } = req.params;
+    const { name, description, price } = req.body;
+    
+    // Check if product exists
+    const product = await Product.findById(productId);
+    if (!product) {
+      res.status(404).json({ success: false, message: 'Product not found' });
+      return;
+    }
+    
+    // Create new plan
+    const plan = await Plan.create({
+      name,
+      description,
+      price,
+      product: productId
+    });
+    
+    // Add plan to product
+    product.plans.push(plan._id);
+    await product.save();
+    
+    res.status(201).json({
+      success: true,
+      data: plan
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server Error',
+      error: error.message
+    });
+  }
+};
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Managing the relationships between products, plans, and cycles in MongoDB required careful implementation. I had to ensure that updates to one entity would properly reflect in related entities.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Focused on testing the implemented APIs and fixing issues.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Tested all implemented APIs using Postman</li>
+                        <li>Fixed bugs and issues discovered during testing</li>
+                        <li>Improved error handling and validation</li>
+                        <li>Documented the API endpoints for team reference</li>
+                        <li>Prepared for next week's focus on the client module</li>
+                    </ul>
+                    <p>Testing results:</p>
+                    <p>The basic CRUD operations for products, plans, and cycles are working as expected. The relationships between these entities are properly maintained in the database. There were a few issues with validation and error handling that I fixed.</p>
+                    <p>End of week reflection: This week marked the beginning of actual development for the Super Admin Portal. I've successfully set up the project structure and implemented the core functionality for managing products, plans, and cycles. Working with TypeScript has added an extra layer of type safety, which has been helpful in catching potential issues early. The MongoDB schemas are designed to be flexible enough to accommodate different product types and pricing structures. Next week, I'll focus on implementing the client module and establishing relationships between clients and products.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

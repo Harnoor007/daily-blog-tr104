@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 16 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 16: Super Admin Portal - Invoice Module as a Package</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week15.html" class="button"><i class="fas fa-arrow-left"></i> Week 15</a>
+                    <a href="week17.html" class="button">Week 17 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on refactoring the invoice module into a standalone package that can be reused across different projects at Wits Innovation Lab.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>Extracting invoice functionality into a reusable package</li>
+                        <li>Setting up the package on GitLab for version control</li>
+                        <li>Creating different invoice templates (Indian/International)</li>
+                        <li>Implementing S3 integration for PDF storage</li>
+                        <li>Building a clean API interface for the invoice package</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Planned the extraction of the invoice module and set up the package structure.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Analyzed the current invoice module to identify components for extraction</li>
+                        <li>Designed the package structure and API interface</li>
+                        <li>Set up the package repository on GitLab</li>
+                        <li>Created the initial package configuration with TypeScript</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining what should be included in the package versus what should remain in the main application required careful consideration. I needed to ensure a clean separation of concerns while maintaining all necessary functionality.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Extracted core invoice generation functionality into the package.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Extracted invoice data processing functions</li>
+                        <li>Implemented invoice number generation utility</li>
+                        <li>Created interfaces for invoice data structures</li>
+                        <li>Set up unit tests for core functions</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring that the extracted code was generalized enough to work in different contexts while still providing all necessary functionality was challenging. I had to carefully refactor code that had dependencies on the main application.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Implemented multiple invoice templates and PDF generation.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created template for Indian invoices with GST support</li>
+                        <li>Implemented international invoice template</li>
+                        <li>Developed template selection logic based on client location</li>
+                        <li>Optimized PDF generation for consistent rendering</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Creating invoice templates that complied with different regional requirements (especially Indian GST regulations) required research and careful implementation. Ensuring consistent PDF rendering across different data scenarios was also challenging.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Integrated AWS S3 for invoice storage and implemented email functionality.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up AWS S3 integration for PDF storage</li>
+                        <li>Implemented secure URL generation for invoices</li>
+                        <li>Extracted email sending functionality into the package</li>
+                        <li>Created configurable email templates</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Implementing secure S3 integration required careful handling of credentials and permissions. I needed to ensure that the package could work with different S3 bucket configurations while maintaining security.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized the package and integrated it back into the main application.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Completed documentation for the invoice package</li>
+                        <li>Published the package to GitLab registry</li>
+                        <li>Integrated the package into the Super Admin Portal</li>
+                        <li>Updated existing invoice-related code to use the package</li>
+                        <li>Tested the integration thoroughly</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully refactored the invoice module into a standalone package that can be reused across different projects. This was a valuable exercise in code organization and modularization. I learned a lot about package development, versioning, and integration. The invoice package now provides a clean, well-documented API that handles invoice generation, PDF creation, S3 storage, and email sending. The multiple template support adds flexibility for different regional requirements. This refactoring will make maintenance easier and allow the invoice functionality to be reused in other projects at Wits Innovation Lab.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

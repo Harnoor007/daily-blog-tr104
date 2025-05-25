@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 15 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 15: Super Admin Portal - Role-Based Access Control Implementation</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week14.html" class="button"><i class="fas fa-arrow-left"></i> Week 14</a>
+                    <a href="week16.html" class="button">Week 16 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on implementing a comprehensive role-based access control (RBAC) system for the Super Admin Portal to ensure secure access to different features based on user roles.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>User authentication and authorization system</li>
+                        <li>Role and permission management</li>
+                        <li>User invitation and onboarding process</li>
+                        <li>Integration of access control across all APIs</li>
+                        <li>User activity tracking and audit logs</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Designed and implemented the user and role schemas for the RBAC system.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created User schema with authentication fields</li>
+                        <li>Designed Role schema with permission definitions</li>
+                        <li>Implemented relationship between users and roles</li>
+                        <li>Set up basic user management endpoints</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Designing a flexible permission system that could accommodate all the different actions in the application required careful planning. I needed to ensure that permissions were granular enough without becoming too complex to manage.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented the authentication system and user login functionality.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up secure password hashing with bcrypt</li>
+                        <li>Implemented JWT-based authentication</li>
+                        <li>Created login and token refresh endpoints</li>
+                        <li>Added password reset functionality</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring the security of the authentication system was paramount. I had to implement proper password hashing, secure token handling, and protection against common security vulnerabilities.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Developed the role and permission management system.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created predefined roles (Global Admin, Finance, Basic User)</li>
+                        <li>Implemented permission assignment to roles</li>
+                        <li>Developed API endpoints for role management</li>
+                        <li>Created middleware for permission checking</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining the appropriate permissions for each role required discussions with stakeholders. I also needed to ensure that the permission checking middleware was efficient and wouldn't significantly impact API performance.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented user invitation system and bulk employee data upload.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created employee data schema for bulk uploads</li>
+                        <li>Implemented API for importing employee data</li>
+                        <li>Developed user invitation system with email notifications</li>
+                        <li>Set up account activation process for new users</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Managing the invitation process and ensuring that only valid invitations could be used to create accounts required careful validation. I also needed to handle the bulk import of employee data efficiently while maintaining data integrity.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Integrated RBAC across all existing APIs and implemented audit logging.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Added permission checks to all existing API endpoints</li>
+                        <li>Implemented "modifiedBy" tracking on all entities</li>
+                        <li>Created user activity logging system</li>
+                        <li>Developed API for viewing audit logs</li>
+                        <li>Tested the entire RBAC system with different user roles</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully implemented a comprehensive role-based access control system for the Super Admin Portal. The system now ensures that users can only access features appropriate to their role, and all actions are properly tracked and audited. Integrating this security layer across all existing APIs was challenging but essential for maintaining data security. The user invitation system provides a streamlined way to onboard new staff members while maintaining security. I've learned a lot about authentication, authorization, and security best practices during this implementation.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

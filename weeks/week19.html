@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 19 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 19: Super Admin Portal - Optimization and Performance Improvements</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week18.html" class="button"><i class="fas fa-arrow-left"></i> Week 18</a>
+                    <a href="week20.html" class="button">Week 20 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on optimizing the Super Admin Portal to improve performance, reduce response times, and enhance the overall efficiency of the application.</p>
+                    
+                    <h3>Key Activities</h3>
+                    <ul>
+                        <li>Database query optimization</li>
+                        <li>Implementing caching strategies</li>
+                        <li>API response optimization</li>
+                        <li>Memory usage improvements</li>
+                        <li>Performance monitoring setup</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Analyzed application performance and identified optimization opportunities.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up performance monitoring tools</li>
+                        <li>Identified slow API endpoints</li>
+                        <li>Analyzed database query performance</li>
+                        <li>Created optimization priority list</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Identifying performance bottlenecks required careful analysis of different components. Some issues weren't immediately obvious and required monitoring the application under various load conditions to pinpoint.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Optimized database queries and implemented indexing strategies.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Added appropriate indexes to MongoDB collections</li>
+                        <li>Optimized complex queries with proper projection</li>
+                        <li>Refactored aggregation pipelines for better performance</li>
+                        <li>Implemented query result limiting and pagination improvements</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining the right indexing strategy required balancing query performance with write performance and storage requirements. Some complex queries needed significant restructuring to make effective use of indexes.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Implemented caching strategies for frequently accessed data.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up Redis for caching</li>
+                        <li>Implemented cache for dashboard metrics</li>
+                        <li>Added caching for product and client listings</li>
+                        <li>Created cache invalidation strategies</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining what data to cache and for how long required careful consideration. I needed to ensure that cached data remained consistent with the database while still providing performance benefits.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Optimized API responses and implemented compression.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented response compression middleware</li>
+                        <li>Optimized JSON response structures</li>
+                        <li>Added conditional response headers (ETag, If-None-Match)</li>
+                        <li>Implemented partial response support for large collections</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Balancing response size reduction with maintaining complete and useful API responses required careful consideration. I needed to ensure that optimizations didn't break existing functionality or make the API harder to use.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized optimizations and measured performance improvements.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Set up continuous performance monitoring</li>
+                        <li>Created performance benchmarks for key operations</li>
+                        <li>Documented optimization strategies for future reference</li>
+                        <li>Measured and reported on performance improvements</li>
+                        <li>Identified areas for future optimization</li>
+                    </ul>
+                    <p>End of week reflection: This week was dedicated to optimizing the Super Admin Portal, and the results have been significant. Dashboard loading times have improved by over 70%, and most API endpoints now respond in under 200ms even with large datasets. The Redis caching implementation has been particularly effective for frequently accessed data. The database indexing strategy has dramatically improved query performance without significantly impacting write operations. Setting up continuous performance monitoring will help us identify any future performance regressions quickly. I've learned a lot about performance optimization in Node.js and MongoDB applications, particularly the importance of proper indexing, query projection, and strategic caching.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

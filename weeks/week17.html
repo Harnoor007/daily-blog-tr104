@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 17 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 17: Super Admin Portal - Settings Module Implementation</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week16.html" class="button"><i class="fas fa-arrow-left"></i> Week 16</a>
+                    <a href="week18.html" class="button">Week 18 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on developing the Settings module for the Super Admin Portal, which allows users to manage their profiles, application settings, and system-wide configurations.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>User profile management and password change</li>
+                        <li>User invitation and permission management</li>
+                        <li>System-wide application settings</li>
+                        <li>Product category, client industry, and payment term management</li>
+                        <li>Search and sorting functionality for user listings</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Designed and implemented the user profile management functionality.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created APIs for retrieving user profile information</li>
+                        <li>Implemented user profile update functionality</li>
+                        <li>Developed secure password change feature</li>
+                        <li>Added validation for profile updates</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring secure password changing required careful implementation. I had to verify the current password before allowing changes and ensure that password complexity requirements were enforced.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented user invitation and management features.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Enhanced the user invitation system with role assignment</li>
+                        <li>Created API for listing all users with filtering</li>
+                        <li>Implemented user permission editing for administrators</li>
+                        <li>Added user activation/deactivation functionality</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Managing permissions for different user roles required careful consideration. I needed to ensure that users couldn't escalate their own permissions and that only authorized administrators could modify user roles.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Developed the employee data management and search functionality.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Enhanced the employee data schema for better searching</li>
+                        <li>Implemented API for searching employee data</li>
+                        <li>Added sorting options for employee listings</li>
+                        <li>Created bulk employee data import improvements</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Implementing efficient search across a large employee dataset required optimization. I needed to ensure that the search functionality was fast and that sorting options worked correctly with different data types.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented application data management features.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created APIs for managing product categories</li>
+                        <li>Implemented client industry type management</li>
+                        <li>Developed payment terms configuration</li>
+                        <li>Added validation and relationship checking for data updates</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring that changes to reference data (like categories and industries) properly updated or restricted related records required careful implementation. I needed to prevent deletion of categories that were in use by existing products.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Finalized the Settings module and implemented system-wide configurations.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created system-wide configuration management</li>
+                        <li>Implemented default values for new entities</li>
+                        <li>Added audit logging for all settings changes</li>
+                        <li>Thoroughly tested all settings module functionality</li>
+                        <li>Created documentation for the settings module</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully implemented the Settings module for the Super Admin Portal. The module provides a comprehensive set of features for managing user profiles, permissions, and application settings. I learned the importance of careful validation and security checks when implementing features that can modify system-wide settings. The search and sorting functionality will make it easier for administrators to find and manage users. The system-wide configuration management provides flexibility for the application to adapt to changing business requirements without code changes. Overall, the Settings module completes a crucial part of the portal's functionality.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

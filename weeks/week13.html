@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 13 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 13: Super Admin Portal - Automated Tasks with Cron Jobs</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week12.html" class="button"><i class="fas fa-arrow-left"></i> Week 12</a>
+                    <a href="week14.html" class="button">Week 14 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on implementing automated tasks using cron jobs to enhance the Invoice module functionality and improve user experience.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>Automated invoice generation and delivery using cron jobs</li>
+                        <li>Payment reminder system for upcoming and overdue invoices</li>
+                        <li>Subscription renewal notifications</li>
+                        <li>Error handling and logging for automated processes</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Researched cron job implementation in Node.js and set up the basic infrastructure.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Researched Node.js cron job libraries (selected node-cron)</li>
+                        <li>Created a cron service module to manage all scheduled tasks</li>
+                        <li>Implemented basic logging for cron job executions</li>
+                        <li>Set up error handling for scheduled tasks</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Understanding the cron syntax and ensuring the jobs would run at the correct times was challenging. I had to carefully test the scheduling to make sure tasks would run as expected.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented automated invoice generation and sending for subscription renewals.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created a function to find subscriptions due for renewal</li>
+                        <li>Implemented automatic invoice generation for renewal subscriptions</li>
+                        <li>Set up a daily cron job to check for subscriptions requiring invoices</li>
+                        <li>Added automatic email sending of generated invoices</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Finding the right balance for when to generate renewal invoices was tricky. We decided to send them 7 days before the subscription ends to give clients time to process payment.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Implemented payment reminder system for upcoming and overdue invoices.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created functions to identify upcoming and overdue payments</li>
+                        <li>Designed email templates for payment reminders</li>
+                        <li>Implemented daily cron job to send payment reminders</li>
+                        <li>Added logging and tracking of sent reminders</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Determining the right frequency for payment reminders required careful consideration. We needed to be persistent without annoying clients. We decided on an initial reminder 3 days before due date, on the due date, and then 3, 7, and 14 days after.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Added system notifications for subscription events and enhanced error handling.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Implemented notifications for soon-to-expire subscriptions</li>
+                        <li>Created a notification for when clients change plans</li>
+                        <li>Enhanced error handling with detailed logging</li>
+                        <li>Added email notifications for system administrators on cron job failures</li>
+                    </ul>
+                    <p>Challenges faced:</p>
+                    <p>Ensuring that all error scenarios were properly handled and reported was complex. I needed to make sure that any failure in automated tasks would be logged and notify administrators without causing the entire system to fail.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Tested all automated processes and refined the implementation.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created test scenarios for all automated tasks</li>
+                        <li>Implemented manual triggers for automated processes (for testing)</li>
+                        <li>Fixed bugs and issues discovered during testing</li>
+                        <li>Created documentation for the cron job implementation</li>
+                        <li>Added monitoring for cron job execution</li>
+                    </ul>
+                    <p>End of week reflection: This week I successfully implemented automated tasks using cron jobs to enhance the Super Admin Portal. The automated invoice generation and payment reminders will significantly reduce manual work for administrators and ensure clients receive timely notifications. Learning how to schedule and manage recurring tasks in Node.js was valuable, and I'm pleased with how the automation integrates with the existing modules. The system now proactively manages many aspects of client billing and notification, which improves both efficiency and user experience.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>

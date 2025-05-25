@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 11 | Industrial Training Daily Diary</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://thewitslab.com/_next/static/media/header-logo.29455862.png?imwidth=828" alt="Wits Innovation Lab Logo" class="logo">
+                </div>
+                <h1>Week 11: Super Admin Portal - Client Module Development</h1>
+                
+                <div class="nav-buttons">
+                    <a href="../daily-diary.html" class="button"><i class="fas fa-arrow-left"></i> Back to Weeks</a>
+                    <a href="week10.html" class="button"><i class="fas fa-arrow-left"></i> Week 10</a>
+                    <a href="week12.html" class="button">Week 12 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fas fa-project-diagram"></i> Project: Super Admin Portal</h2>
+                
+                <div class="project-section">
+                    <h3>Current Focus</h3>
+                    <p>This week, I focused on developing the Client module for the Super Admin Portal. This module allows the company to manage client information and their product subscriptions.</p>
+                    
+                    <h3>Key Features Implemented</h3>
+                    <ul>
+                        <li>Client management (CRUD operations)</li>
+                        <li>Client subscription handling</li>
+                        <li>Assigning products and plans to clients</li>
+                        <li>Client activation/deactivation</li>
+                    </ul>
+                </div>
+                
+                <h2><i class="fas fa-calendar-day"></i> Daily Entries</h2>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 1 - Monday</h3>
+                    <p>Started designing and implementing the Client schema and basic CRUD operations.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Designed the Client schema with necessary fields</li>
+                        <li>Created model for client contact information</li>
+                        <li>Implemented basic validation for client data</li>
+                        <li>Set up client creation endpoint</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Client Schema
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface IClient extends Document {
+  name: string;
+  industry: string;
+  contactPerson: {
+    name: string;
+    email: string;
+    phone: string;
+    position: string;
+  };
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+  };
+  isActive: boolean;
+  subscriptions: mongoose.Types.ObjectId[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const ClientSchema: Schema = new Schema({
+  name: { type: String, required: true, trim: true },
+  industry: { type: String, required: true },
+  contactPerson: {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    position: { type: String }
+  },
+  address: {
+    street: { type: String, required: true },
+    city: { type: String, required: true },
+    state: { type: String, required: true },
+    country: { type: String, required: true },
+    postalCode: { type: String, required: true }
+  },
+  isActive: { type: Boolean, default: true },
+  subscriptions: [{ type: Schema.Types.ObjectId, ref: 'Subscription' }]
+}, { timestamps: true });
+
+export default mongoose.model<IClient>('Client', ClientSchema);
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Designing the client schema required careful consideration of all the information we need to store about clients. I had to ensure the schema was comprehensive but also flexible enough for different client types.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 2 - Tuesday</h3>
+                    <p>Implemented the Client controller with CRUD operations and routes.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created the Client controller with create, read, update, delete functions</li>
+                        <li>Implemented route for listing all clients</li>
+                        <li>Added functionality for activating/deactivating clients</li>
+                        <li>Implemented filtering and pagination for client listing</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Get All Clients with filtering and pagination
+export const getClients = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const skip = (page - 1) * limit;
+    
+    // Build filter object
+    const filter: any = {};
+    if (req.query.isActive) {
+      filter.isActive = req.query.isActive === 'true';
+    }
+    if (req.query.industry) {
+      filter.industry = req.query.industry;
+    }
+    
+    const clients = await Client.find(filter)
+      .skip(skip)
+      .limit(limit)
+      .sort({ createdAt: -1 });
+    
+    const total = await Client.countDocuments(filter);
+    
+    res.status(200).json({
+      success: true,
+      count: clients.length,
+      pagination: {
+        total,
+        page,
+        pages: Math.ceil(total / limit)
+      },
+      data: clients
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server Error',
+      error: error.message
+    });
+  }
+};
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Implementing filtering and pagination required careful handling of query parameters and proper error checking. I also had to ensure that the API responses were consistent and followed best practices.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 3 - Wednesday</h3>
+                    <p>Designed and implemented the Subscription schema and functionality for assigning products to clients.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created the Subscription schema</li>
+                        <li>Implemented API endpoint for assigning products to clients</li>
+                        <li>Added functionality to select specific plans and cycles</li>
+                        <li>Set up subscription status tracking</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Subscription Schema
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface ISubscription extends Document {
+  client: mongoose.Types.ObjectId;
+  product: mongoose.Types.ObjectId;
+  plan: mongoose.Types.ObjectId;
+  cycle: mongoose.Types.ObjectId;
+  startDate: Date;
+  endDate: Date;
+  status: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const SubscriptionSchema: Schema = new Schema({
+  client: { type: Schema.Types.ObjectId, ref: 'Client', required: true },
+  product: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
+  plan: { type: Schema.Types.ObjectId, ref: 'Plan', required: true },
+  cycle: { type: Schema.Types.ObjectId, ref: 'Cycle', required: true },
+  startDate: { type: Date, required: true },
+  endDate: { type: Date, required: true },
+  status: { 
+    type: String, 
+    enum: ['active', 'pending', 'expired', 'cancelled'],
+    default: 'active'
+  },
+  isActive: { type: Boolean, default: true }
+}, { timestamps: true });
+
+export default mongoose.model<ISubscription>('Subscription', SubscriptionSchema);
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Designing the subscription model required careful consideration of the relationships between clients, products, plans, and cycles. I had to ensure that all the necessary information was captured while maintaining data integrity.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 4 - Thursday</h3>
+                    <p>Implemented functionality for managing client subscriptions and changing plans.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created endpoint for changing a client's subscription plan</li>
+                        <li>Implemented logic for calculating credits from current plan</li>
+                        <li>Added functionality for calculating cost for new plan</li>
+                        <li>Set up adjustment of amount to be paid based on credits</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Change Plan Function
+export const changePlan = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { subscriptionId } = req.params;
+    const { newPlanId, newCycleId } = req.body;
+    
+    // Find the subscription
+    const subscription = await Subscription.findById(subscriptionId)
+      .populate('plan')
+      .populate('cycle')
+      .populate('client');
+    
+    if (!subscription) {
+      res.status(404).json({ success: false, message: 'Subscription not found' });
+      return;
+    }
+    
+    // Find the new plan and cycle
+    const newPlan = await Plan.findById(newPlanId);
+    const newCycle = await Cycle.findById(newCycleId);
+    
+    if (!newPlan || !newCycle) {
+      res.status(404).json({ success: false, message: 'Plan or cycle not found' });
+      return;
+    }
+    
+    // Calculate remaining time on current subscription
+    const currentDate = new Date();
+    const endDate = new Date(subscription.endDate);
+    const remainingDays = Math.max(0, Math.ceil((endDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)));
+    const totalDays = Math.ceil((endDate.getTime() - new Date(subscription.startDate).getTime()) / (1000 * 60 * 60 * 24));
+    
+    // Calculate credit from current plan
+    const currentPlan = subscription.plan as any;
+    const currentCycle = subscription.cycle as any;
+    const dailyRate = currentPlan.price / totalDays;
+    const creditAmount = dailyRate * remainingDays;
+    
+    // Calculate cost for new plan
+    const newPlanPrice = newPlan.price;
+    
+    // Adjust amount to be paid
+    const amountToBePaid = Math.max(0, newPlanPrice - creditAmount);
+    
+    // Update subscription
+    subscription.plan = newPlan._id;
+    subscription.cycle = newCycle._id;
+    subscription.startDate = currentDate;
+    subscription.endDate = new Date(currentDate.getTime() + (newCycle.durationDays * 24 * 60 * 60 * 1000));
+    
+    await subscription.save();
+    
+    res.status(200).json({
+      success: true,
+      data: {
+        subscription,
+        billing: {
+          creditFromCurrentPlan: creditAmount,
+          newPlanCost: newPlanPrice,
+          amountToBePaid
+        }
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server Error',
+      error: error.message
+    });
+  }
+};
+                    </code></pre>
+                    <p>Challenges faced:</p>
+                    <p>Implementing the plan change logic was complex, especially calculating the credits from the current plan and adjusting the amount to be paid. I had to ensure that all edge cases were handled correctly and that the calculations were accurate.</p>
+                </div>
+                
+                <div class="day-entry">
+                    <h3><i class="fas fa-calendar-check"></i> Day 5 - Friday</h3>
+                    <p>Implemented data export functionality and tested the client module.</p>
+                    <p>Tasks completed:</p>
+                    <ul>
+                        <li>Created endpoint for exporting client data as CSV</li>
+                        <li>Implemented basic PDF generation for client reports</li>
+                        <li>Thoroughly tested all client module APIs</li>
+                        <li>Fixed bugs and edge cases discovered during testing</li>
+                        <li>Documented the client module APIs</li>
+                    </ul>
+                    <p>Code snippets:</p>
+                    <pre><code>
+// Export Client Data as CSV
+export const exportClientData = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { clientId } = req.params;
+    
+    const client = await Client.findById(clientId)
+      .populate({
+        path: 'subscriptions',
+        populate: [
+          { path: 'product' },
+          { path: 'plan' },
+          { path: 'cycle' }
+        ]
+      });
+    
+    if (!client) {
+      res.status(404).json({ success: false, message: 'Client not found' });
+      return;
+    }
+    
+    // Generate CSV data
+    const fields = ['Product', 'Plan', 'Cycle', 'Start Date', 'End Date', 'Status'];
+    const subscriptionsData = client.subscriptions.map((sub: any) => ({
+      'Product': sub.product.name,
+      'Plan': sub.plan.name,
+      'Cycle': sub.cycle.name,
+      'Start Date': new Date(sub.startDate).toLocaleDateString(),
+      'End Date': new Date(sub.endDate).toLocaleDateString(),
+      'Status': sub.status
+    }));
+    
+    // Convert to CSV
+    const parser = new Parser({ fields });
+    const csv = parser.parse(subscriptionsData);
+    
+    // Set headers for file download
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', `attachment; filename="client-${clientId}.csv"`);
+    
+    res.status(200).send(csv);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server Error',
+      error: error.message
+    });
+  }
+};
+                    </code></pre>
+                    <p>Testing results:</p>
+                    <p>All client module APIs are working as expected. The client creation, updating, and deletion functionalities work properly. The subscription management and plan changing features work correctly, with accurate calculations for credits and payments. The data export functionality generates valid CSV files.</p>
+                    <p>End of week reflection: This week was productive as I successfully implemented the client module for the Super Admin Portal. The client management features, subscription handling, and plan changing functionality are now working well. The calculations for plan changes were particularly challenging but rewarding to implement. I've learned a lot about handling complex data relationships in MongoDB and performing calculations based on date ranges. Next week, I'll focus on implementing the invoice module to complete the core functionality of the portal.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 | Harnoor Birdi | Industrial Training at Wits Innovation Lab</p>
+        </div>
+    </footer>
+</body>
+</html>
